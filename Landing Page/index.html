@@ -35,7 +35,7 @@
         <img src="assets/img/corendon.png" alt="Vuetify.js" width="650" height="250">
         <h1 class="white--text mb-2 display-3">WI-FI Portal</h1>
         <div class="headline mb-3 text-xs-center">Powered by Corendon</div>
-        <v-btn class="blue lighten-2 mt-5" dark large href="#login">
+        <v-btn class="blue lighten-2 mt-5 anchor" dark large href="#login">
             Naar aanmelden
         </v-btn>
     </v-layout>
@@ -83,7 +83,7 @@
     <v-layout column align-center justify-center>
         <div class="headline white--text mb-3">Internet in de lucht was nooit zo simpel</div>
         <em>Meld je snel aan</em>
-        <v-btn class="blue lighten-2 mt-5" dark large href="#login">
+        <v-btn class="blue lighten-2 mt-5 anchor" dark large href="#login">
             Naar aanmelden
         </v-btn>
     </v-layout>
@@ -173,18 +173,10 @@
 </div>
 
 <!-- Include Javascript at the bottom for faster page loading -->
-<script src="assets/js/vue.min.js"></script>
-<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
-<script>
-// Fire
-new Vue({
-    el: '#app',
-    data () {
-        return {
-            title: 'The Akatsuki',
-        }
-    }
-});
-</script>
+<script src="assets/js/vue.min.js"></script> <!-- VueJS -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!-- JQUERY -->
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script> <!-- VuetifyJS -->
+<script src="assets/js/functions.js"></script>
+
 </body>
 </html>
