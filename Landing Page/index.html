@@ -4,6 +4,7 @@
     <title>Corendon Portal</title>
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <link href="assets/css/style.css" rel="stylesheet"/>
 </head>
 <body>
 
@@ -29,8 +30,8 @@
         <img src="assets/img/corendon.png" alt="Vuetify.js" width="650" height="250">
         <h1 class="white--text mb-2 display-3">WI-FI Portal</h1>
         <div class="headline mb-3 text-xs-center">Powered by Corendon</div>
-        <v-btn class="blue lighten-2 mt-5" dark large href="#pricing">
-            Doorgaan
+        <v-btn class="blue lighten-2 mt-5" dark large href="/login.html">
+            Meld je nu aan
         </v-btn>
     </v-layout>
 </v-parallax>
@@ -39,67 +40,25 @@
 <!-- /Parallax content -->
 
 <!-- Pricing tables -->
-<section id="pricing">
+<section>
 
 <v-layout column wrap class="my-5" align-center>
-    <v-flex xs12 sm4 class="my-3">
-        <div class="text-xs-center">
-            <h2 class="headline">Kies je bundel</h2>
-            <span class="subheading">
-                Cras facilisis mi vitae nunc
-            </span>
-        </div>
-    </v-flex>
-    <v-flex xs12>
-        <v-container grid-list-xl>
-            <v-layout row wrap align-center>
-                <v-flex xs12 md4>
-                    <v-card class="elevation-0 transparent">
-                        <v-card-text class="text-xs-center">
-                            <v-icon x-large class="blue--text text--lighten-2">color_lens</v-icon>
-                        </v-card-text>
-                    <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Material Design</div>
-                    </v-card-title>
-                    <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs12 md4>
-                <v-card class="elevation-0 transparent">
-                    <v-card-text class="text-xs-center">
-                        <v-icon x-large class="blue--text text--lighten-2">flash_on</v-icon>
-                    </v-card-text>
-                    <v-card-title primary-title class="layout justify-center">
-                        <div class="headline">Fast development</div>
-                    </v-card-title>
-                    <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-            <v-flex xs12 md4>
-                <v-card class="elevation-0 transparent">
-                    <v-card-text class="text-xs-center">
-                        <v-icon x-large class="blue--text text--lighten-2">build</v-icon>
-                    </v-card-text>
-                    <v-card-title primary-title class="layout justify-center">
-                        <div class="headline text-xs-center">Completely Open Sourced</div>
-                    </v-card-title>
-                    <v-card-text>
-                        Cras facilisis mi vitae nunc lobortis pharetra. Nulla volutpat tincidunt ornare.
-                        Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas.
-                        Nullam in aliquet odio. Aliquam eu est vitae tellus bibendum tincidunt. Suspendisse potenti.
-                    </v-card-text>
-                </v-card>
-            </v-flex>
-        </v-layout>
-    </v-container>
+<v-flex xs12 sm4 class="my-3">
+    <div class="text-xs-center">
+        <h2 class="headline">Corendon WI-FI portal</h2>
+        <span class="subheading">
+            Log in met je achternaam &amp; vluchtnummer
+        </span>
+    </div>
+</v-flex>
+<v-flex xs12>
+
+<v-container grid-list-xl>
+<v-layout row wrap align-center>
+
+<v-flex xs12 md4></v-flex>
+<v-flex xs12 md4>
+
 </v-flex>
 </v-layout>
 
@@ -111,10 +70,10 @@
 
 <v-parallax src="assets/img/airplane.jpg" height="380">
     <v-layout column align-center justify-center>
-        <div class="headline white--text mb-3">Web development has never been easier</div>
-        <em>Kick-start your application today</em>
+        <div class="headline white--text mb-3">Internet in de lucht was nooit zo simpel</div>
+        <em>Meld je snel aan</em>
         <v-btn class="blue lighten-2 mt-5" dark large href="/pre-made-themes">
-            Get Started
+            Naar aanmelden
         </v-btn>
     </v-layout>
 </v-parallax>
@@ -209,7 +168,8 @@ new Vue({
     el: '#app',
     data () {
         return {
-            title: 'Wi-Fi login'
+            title: 'Wi-Fi login',
+            title2: 'Preliminary report describing the state of California'
         }
     }
 });
