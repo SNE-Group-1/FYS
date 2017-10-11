@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Corendon Portal</title>
+    <link href="assets/css/style.css" rel="stylesheet"/>
+    <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
+    <link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, minimal-ui">
+</head>
+<body>
+
+<!-- Main application -->
+<div id="app">
+
+<v-app light>
+
+<!-- Toolbar -->
+<v-toolbar class="white">
+    <v-toolbar-title v-text="title"></v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <v-btn flat href="http://corendon.nl">corendon.nl</v-btn>
+    </v-toolbar-items>
+</v-toolbar>
+<!-- /Toolbar -->
+
+<!-- Main content -->
+<main>
+
+<!-- Parallax content -->
+<section>
+
+<v-parallax src="assets/img/background.jpeg" height="600">
+    <v-layout column align-center justify-center class="white--text">
+        <img src="assets/img/corendon.png" alt="Vuetify.js" width="650" height="250">
+        <h1 class="white--text mb-2 display-3">WI-FI Portal</h1>
+        <div class="headline mb-3 text-xs-center">Powered by Corendon</div>
+        <v-btn class="blue lighten-2 mt-5 anchor" dark large href="#login">
+            Naar aanmelden
+        </v-btn>
+    </v-layout>
+</v-parallax>
+
+</section>
+<!-- /Parallax content -->
+
+<!-- Login form -->
+<section id="login">
+
+<v-layout column wrap class="my-5" align-center>
+<v-flex xs12 sm4 class="my-3">
+    <div class="text-xs-center">
+        <h2 class="headline">Corendon WI-FI portal</h2>
+        <span class="subheading">
+            Voer je vluchtnummer &amp; achternaam in om toegang tot het Wi-Fi netwerk te krijgen.
+        </span>
+
+        <!-- Login form -->
+        <v-text-field name="flightNumber" label="Vluchtnummer" id="flightNumber"></v-text-field>
+        <v-text-field name="name" label="Achternaam" id="name"></v-text-field>
+        <v-btn color dark>Aanmelden</v-btn>
+        <!-- /Login form -->
+    </div>
+</v-flex>
+<v-flex xs12>
+
+<v-container grid-list-xl>
+<v-layout row wrap align-center>
+
+<v-flex xs12 md4></v-flex>
+<v-flex xs12 md4>
+
+</v-flex>
+</v-layout>
+
+</section>
+<!-- /Login form -->
+
+<!-- Airplane parallax -->
+<section>
+
+<v-parallax src="assets/img/airplane.jpg" height="380">
+    <v-layout column align-center justify-center>
+        <div class="headline white--text mb-3">Internet in de lucht was nooit zo simpel</div>
+        <em>Meld je snel aan</em>
+        <v-btn class="blue lighten-2 mt-5 anchor" dark large href="#login">
+            Naar aanmelden
+        </v-btn>
+    </v-layout>
+</v-parallax>
+
+</section>
+<!-- /Airplane parallax -->
+
+<!-- Contact info -->
+<section>
+
+<v-container grid-list-xl>
+    <v-layout row wrap justify-center class="my-5">
+        <v-flex xs12 sm4>
+            <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                    <div class="headline">Over Corendon</div>
+                </v-card-title>
+                <v-card-text>
+                    Corendon is een Turks/Nederlandse holding, gespecialiseerd in vliegvakanties.
+                    Het bedrijf is opgericht in 2000, het hoofdkantoor staat in Lijnden.
+                    De naam Corendon heeft betrekking op een aan robijn verwant bordeauxrood mineraal, korund.
+                    Bordeauxrood is tevens de huiskleur van Corendon.
+                    Corendon is hoofdsponsor van de schaatsploeg Team Corendon.
+                </v-card-text>
+            </v-card>
+        </v-flex>
+        <v-flex xs12 sm4 offset-sm1>
+            <v-card class="elevation-0 transparent">
+                <v-card-title primary-title class="layout justify-center">
+                    <div class="headline">Neem contact op</div>
+                </v-card-title>
+                <v-card-text>
+                    U kunt op de volgende manieren contact met ons opnemen
+                </v-card-text>
+                <v-list class="transparent">
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-icon class="blue--text text--lighten-2">phone</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>023 751 06 06</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-icon class="blue--text text--lighten-2">place</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>Lijnden, NL</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                    <v-list-tile>
+                        <v-list-tile-action>
+                            <v-icon class="blue--text text--lighten-2">email</v-icon>
+                        </v-list-tile-action>
+                        <v-list-tile-content>
+                            <v-list-tile-title>group@corendon.nl</v-list-tile-title>
+                        </v-list-tile-content>
+                    </v-list-tile>
+                </v-list>
+            </v-card>
+        </v-flex>
+    </v-layout>
+</v-container>
+
+</section>
+<!-- /Contact info -->
+
+<!-- Page footer -->
+<v-footer class="blue darken-2">
+    <v-layout row wrap align-center>
+        <v-flex xs12>
+            <div class="white--text ml-3">
+                Made with
+                <v-icon class="red--text">favorite</v-icon>
+                by HBO-ICT: SNE</a>
+                and <a class="white--text" href="http://hva.nl">HvA</a>
+            </div>
+        </v-flex>
+    </v-layout>
+</v-footer>
+<!-- /Page footer -->
+
+</main>
+</v-app>
+</div>
+
+<!-- Include Javascript at the bottom for faster page loading -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script> <!-- JQUERY -->
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="https://unpkg.com/vuetify/dist/vuetify.js"></script>
+<script src="assets/js/functions.js"></script>
+
+</body>
+</html>
