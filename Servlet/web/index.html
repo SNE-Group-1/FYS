@@ -56,9 +56,12 @@
                     </span>
 
                     <!-- Login form -->
-                    <v-text-field name="flightNumber" label="Vluchtnummer" id="flightNumber"></v-text-field>
-                    <v-text-field name="name" label="Achternaam" id="name"></v-text-field>
-                    <v-btn color dark>Aanmelden</v-btn>
+                    <form action="loginServlet" method="POST">
+                        <v-text-field name="flightNumber" label="Vluchtnummer" id="flightNumber"></v-text-field>
+                        <v-text-field name="name" label="Achternaam" id="name"></v-text-field>
+                        <!--<v-btn @click="submit" outline color="indigo">Aanmelden</v-btn>-->
+                        <input type="submit" value="Aanmelden"/>
+                    </form>
                     <!-- /Login form -->
                 </div>
             </v-flex>
