@@ -1,5 +1,7 @@
 
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -39,8 +41,14 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                Runtime rt = Runtime.getRuntime();
-                rt.exec("sudo su | shutdown -h now");
+                String[] command = {"sudo","iptables","-f"};  // Only change!
+
+                Runtime runtime = Runtime.getRuntime();
+                Process process = null;
+
+                process = runtime.exec(command);
+                BufferedReader in = 
+                new BufferedReader(new InputStreamReader(process.getInputStream()));
                 
                 // build HTML code
                 String htmlResponse = "<html>";
