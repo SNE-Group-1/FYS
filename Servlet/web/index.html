@@ -7,6 +7,7 @@
     <link href='https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons' rel="stylesheet">
     <!--<link href="https://unpkg.com/vuetify/dist/vuetify.min.css" rel="stylesheet">-->
     <link href="assets/css/vuetify.min.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="assets/css/style.css" type="text/css"/>
 </head>
 <body>
 
@@ -17,7 +18,6 @@
     <v-toolbar class="white">
        <v-toolbar-title v-text="title"></v-toolbar-title>
        <v-spacer></v-spacer>
-       <v-toolbar-side-icon class="hidden-md-and-up"></v-toolbar-side-icon>
        <v-toolbar-items class="hidden-sm-and-down">
          <v-btn flat href="http://corendon.nl">corendon.nl</v-btn>
        </v-toolbar-items>
@@ -30,9 +30,9 @@
     <!-- Parallax content -->
     <section>
 
-    <v-parallax src="assets/img/background.jpeg" height="600">
+    <v-parallax src="assets/img/background.jpeg" id="background" height="600">
       <v-layout column align-center justify-center class="white--text">
-          <img src="assets/img/corendon.png" alt="Vuetify.js" width="650" height="250">
+          <img src="assets/img/corendon.png" alt="Vuetify.js" id="logo" width="650" height="250">
           <h1 class="white--text mb-2 display-3">WI-FI Portal</h1>
           <div class="headline mb-3 text-xs-center">Powered by Corendon</div>
           <v-btn class="blue lighten-2 mt-5 anchor" dark large href="#login">
@@ -57,10 +57,10 @@
                     </span>
 
                     <!-- Login form -->
-                    <form action="loginServlet" method="POST">
+                    <form action="loginServlet" method="POST" class="login-form">
                         <v-text-field name="ticketNumber" label="Ticket Nummer" id="ticketNumber"></v-text-field>
                         <v-text-field name="name" label="Achternaam" id="name"></v-text-field>
-                        <input type="submit" value="Aanmelden"/>
+                        <v-btn type="submit" color="primary">Aanmelden</v-btn>
                     </form>
                     <!-- /Login form -->
                 </div>

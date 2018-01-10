@@ -1,0 +1,9 @@
+@media only screen and ( max-width: 767px ) { 
+    #logo  { width:250px; height: 100px; }
+    .login-form {
+        padding: 25px;
+    }
+    .subheading{
+        padding: 25px;
+    }
+}
