@@ -44,23 +44,12 @@ public class LoginServlet extends HttpServlet {
             if(Reader.verify(name, ticketNumber)){
                 System.out.println("Awesome!");
                 
-                // Get IP address
-                InetAddress addr = InetAddress.getLocalHost();
-
-                //Getting IPAddress of localhost - getHostAddress return IP Address
-                // in textual format
-                String ipAddress = addr.getHostAddress();
-
-                System.out.println("IP address of localhost from Java Program: " + ipAddress);
-
-                //Hostname
-                String hostname = addr.getHostName();
+                String ipAddress = request.getRemoteAddr();
                 
                 // build HTML code
                 String htmlResponse = "<html>";
                 htmlResponse += "<h1>You are logged in</h1>";
                 htmlResponse += "<p>IP address: " + ipAddress +"</p>";
-                htmlResponse += "<p>Hostname: " + hostname +"</p>";
                 htmlResponse += "<h2>Your flight number is: " + ticketNumber + "<br/>";      
                 htmlResponse += "Your name is: " + name + "</h2>";    
                 htmlResponse += "</html>";
