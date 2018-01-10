@@ -1,5 +1,5 @@
 @media only screen and ( max-width: 767px ) { 
-    #logo  { width:250px; height: 100px; }
+    #logo  { width:400px; height: 150px; }
     .login-form {
         padding: 25px;
     }
