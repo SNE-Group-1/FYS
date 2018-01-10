@@ -41,7 +41,7 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String[] command = {"sudo /sbin/iptables -A INPUT -p tcp -s" + ipAddress + " -j ACCEPT"};  // Only change!
+                String[] command = {"sudo /sbin/iptables -A INPUT -p tcp -s" + ipAddress + " -j ACCEPT", "sudo tee /etc/iptables/rules.v4"};  // Only change!
 
                 Runtime runtime = Runtime.getRuntime();
                 Process process = null;
