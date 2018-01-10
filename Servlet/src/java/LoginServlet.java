@@ -46,8 +46,8 @@ public class LoginServlet extends HttpServlet {
                 
                 String ipAddress = request.getRemoteAddr();
                 
-                String inputCommand="sudo iptables -A INPUT -s " + ipAddress + " -j ACCEPT | sudo tee /etc/iptables/rules.v4";
-                String outputCommand="sudo iptables -A OUTPUT -d " + ipAddress + " -j ACCEPT | sudo tee /etc/iptablesrules.v4";
+                String inputCommand="sudo iptables -A INPUT -s " + ipAddress + " --dport 8080 -j ACCEPT | sudo tee /etc/iptables/rules.v4";
+                String outputCommand="sudo iptables -A OUTPUT -d " + ipAddress + " --dport 8080 -j ACCEPT | sudo tee /etc/iptables/rules.v4";
                 Runtime.getRuntime().exec(inputCommand);
                 Runtime.getRuntime().exec(outputCommand);
                 
