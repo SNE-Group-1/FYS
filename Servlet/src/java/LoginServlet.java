@@ -1,7 +1,9 @@
 
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.InetAddress;
@@ -42,16 +44,17 @@ public class LoginServlet extends HttpServlet {
         
         try {
             if(Reader.verify(name, ticketNumber)){
-                System.out.println("Awesome!");
                 
+                // Get client IP address
                 String ipAddress = request.getRemoteAddr();
                 
-                String deleteCommand = "sudo iptables -D INPUT -s " + ipAddress + " -j DROP | sudo tee /etc/iptables/rules.v4"; 
-                String inputCommand = "sudo iptables -A INPUT -s " + ipAddress + " -j ACCEPT | sudo tee /etc/iptables/rules.v4";
-                String outputCommand = "sudo iptables -A OUTPUT -d " + ipAddress + " -j ACCEPT | sudo tee /etc/iptables/rules.v4";
-                Runtime.getRuntime().exec(deleteCommand);
-                Runtime.getRuntime().exec(inputCommand);
-                Runtime.getRuntime().exec(outputCommand);
+                // Change IPTables rules for the IP address
+                Process proc1 = Runtime.getRuntime().exec("iptables -I INPUT -p tcp -m tcp -s " + ipAddress + " --dport 22 -j ACCEPT");
+                try {
+                    proc1.waitFor();
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 
                 // build HTML code
                 String htmlResponse = "<html>";
