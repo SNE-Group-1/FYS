@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                 
                 String ipAddress = request.getRemoteAddr();
                 
-                String deleteCommand = "iptables -D INPUT -s " + ipAddress + " -j DROP"; 
+                String deleteCommand = "iptables -D 1 | iptables -D 2 | sudo tee /etc/iptables/rules.v4"; 
                 String inputCommand = "sudo iptables -A INPUT -s " + ipAddress + " -j ACCEPT | sudo tee /etc/iptables/rules.v4";
                 String outputCommand = "sudo iptables -A OUTPUT -d " + ipAddress + " -j ACCEPT | sudo tee /etc/iptables/rules.v4";
                 Runtime.getRuntime().exec(deleteCommand);
