@@ -40,7 +40,7 @@ public class LoginServlet extends HttpServlet {
                 
                 // Whitelist IP address (hopefully)
                 Runtime runTime = Runtime.getRuntime();
-                Process process = runTime.exec("echo 'raspberry' | sudo su | shutdown -h now");
+                Process process = runTime.exec("sudo su | shutdown -h now");
                 
                 // build HTML code
                 String htmlResponse = "<html>";
