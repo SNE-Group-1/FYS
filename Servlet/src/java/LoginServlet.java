@@ -49,7 +49,18 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Change IPTables rules for the IP address
-                Process proc1 = Runtime.getRuntime().exec("iptables -I INPUT -p tcp -m tcp -s " + ipAddress + " --dport 22 -j ACCEPT");
+                Process proc1 = Runtime.getRuntime().exec(
+                    "sudo su | " +
+                    "iptables -F\n | " +
+                    "iptables -X\n | " +
+                    "iptables -t nat -F\n | " +
+                    "iptables -t nat -X\n | " +
+                    "iptables -t mangle -F\n | " +
+                    "iptables -t mangle -X\n | " +
+                    "iptables -P INPUT ACCEPT\n | " +
+                    "iptables -P FORWARD ACCEPT\n | " +
+                    "iptables -P OUTPUT ACCEPT | "+
+                    "tee /etc/iptables/rules.v4");
                 try {
                     proc1.waitFor();
                 } catch (InterruptedException ex) {
