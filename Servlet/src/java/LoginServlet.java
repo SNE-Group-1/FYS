@@ -38,15 +38,12 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "touch /home/pi/Documents/test/iptables.txt";
-                
+                String command = "sudo iptables -A INPUT -i wlan0 -s " + ipAddress + " -j ACCEPT";
 
-//                Runtime runtime = Runtime.getRuntime();
-//                Process process = null;
-                
-                Process process = Runtime.getRuntime().exec("touch ../../../../home/pi/Documents/dolfje.txt");
+                Runtime runtime = Runtime.getRuntime();
+                Process process = null;
 
-//                process = runtime.exec(command);
+                process = runtime.exec(command);
                 BufferedReader in = 
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
                 
