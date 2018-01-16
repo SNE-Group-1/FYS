@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "sudo iptables -A INPUT -i wlan0 -s " + ipAddress + " -j ACCEPT";
+                String command = "sudo i-A INPUT -i wlan0 -s '" + ipAddress + "' -j ACCEPT' && sudo tee -a";
 
                 Runtime runtime = Runtime.getRuntime();
                 Process process = null;
@@ -46,7 +46,7 @@ public class LoginServlet extends HttpServlet {
                 process = runtime.exec(command);
                 BufferedReader in = 
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
-                
+                request.getRequestDispatcher("http://google.com").forward(request, response);
             }else{
                 System.out.println("Wrong input");
                 String htmlResponse = "<html>";
