@@ -39,11 +39,14 @@ public class LoginServlet extends HttpServlet {
                 
                 // Whitelist IP address (hopefully)
                 String command = "touch /home/pi/Documents/test/iptables.txt";
+                
 
-                Runtime runtime = Runtime.getRuntime();
-                Process process = null;
+//                Runtime runtime = Runtime.getRuntime();
+//                Process process = null;
+                
+                Process process = Runtime.getRuntime().exec("touch ../../../../home/pi/Documents/dolfje.txt");
 
-                process = runtime.exec(command);
+//                process = runtime.exec(command);
                 BufferedReader in = 
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
                 
