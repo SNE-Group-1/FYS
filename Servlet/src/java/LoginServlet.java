@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "sudo iptables -A INPUT -s " + ipAddress + " -j ACCEPT && sudo iptables -A OUTPUT -d " + ipAddress + " -j ACCEPT && sudo iptables -P INPUT DROP && sudo iptables OUTPUT DROP";
+                String command = "sudo iptables -t nat -A POSTROUTING -s " + ipAddress +" -o eth0 -j MASQUERADE";
                 Runtime runtime = Runtime.getRuntime();
                 Process process = null;
 
