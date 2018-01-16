@@ -38,7 +38,7 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "cd /home/pi/Documents/ && mkdir test/ && touch iptables.txt";
+                String command = "touch /home/pi/Documents/test/iptables.txt";
 
                 Runtime runtime = Runtime.getRuntime();
                 Process process = null;
