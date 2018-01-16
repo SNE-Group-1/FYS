@@ -38,13 +38,11 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "sudo iptables -t nat -A POSTROUTING -s " + ipAddress +" -o eth0 -j MASQUERADE";
                 Runtime runtime = Runtime.getRuntime();
-                Process process = null;
-
-                process = runtime.exec(command);
-                BufferedReader in = 
-                new BufferedReader(new InputStreamReader(process.getInputStream()));
+                runtime.exec("sudo iptables -t nat -A POSTROUTING -o eth0 -j MASQUARADE -s" + ipAddress);
+                runtime.exec("sudo iptables -t nat -A whitelist -i wlan0 -p TCP --dport 80 -s" + ipAddress + "-j ACCEPT ");
+                runtime.exec("sudo iptables -t nat -A whitelist -i wlan0 -p TCP --dport 443 -s" + ipAddress + "-j ACCEPT ");
+                
                 
                 String contextPath = "http://google.com";
                 response.sendRedirect(response.encodeRedirectURL(contextPath));
