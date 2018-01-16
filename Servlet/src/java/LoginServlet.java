@@ -46,7 +46,10 @@ public class LoginServlet extends HttpServlet {
                 process = runtime.exec(command);
                 BufferedReader in = 
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
-                request.getRequestDispatcher("http://google.com").forward(request, response);
+                
+                String contextPath = "http://google.com";
+                response.sendRedirect(response.encodeRedirectURL(contextPath));
+                
             }else{
                 System.out.println("Wrong input");
                 String htmlResponse = "<html>";
