@@ -24,9 +24,6 @@ public class LoginServlet extends HttpServlet {
         // read form fields
         String ticketNumber = request.getParameter("ticketNumber");
         String name = request.getParameter("name");
-         
-        System.out.println("ticketNumber: " + ticketNumber);
-        System.out.println("name: " + name);
  
         // do some processing here...
         Reader reader = new Reader(){};
@@ -41,7 +38,7 @@ public class LoginServlet extends HttpServlet {
                 String ipAddress = request.getRemoteAddr();
                 
                 // Whitelist IP address (hopefully)
-                String command = "echo '-A INPUT -i wlan0 -s '" + ipAddress + "' -j ACCEPT' | sudo tee -a /etc/iptables/rules.v4";
+                String command = "echo '-A INPUT -i wlan0 -s '" + ipAddress + "' -j ACCEPT' | sudo tee -a iptables.txt";
 
                 Runtime runtime = Runtime.getRuntime();
                 Process process = null;
@@ -50,15 +47,6 @@ public class LoginServlet extends HttpServlet {
                 BufferedReader in = 
                 new BufferedReader(new InputStreamReader(process.getInputStream()));
                 
-                // build HTML code
-                String htmlResponse = "<html>";
-                htmlResponse += "<h1>You are logged in</h1>";
-                htmlResponse += "<p>IP address: " + ipAddress +"</p>";
-                htmlResponse += "<h2>Your flight number is: " + ticketNumber + "<br/>";      
-                htmlResponse += "Your name is: " + name + "</h2>";    
-                htmlResponse += "</html>";
-                // return response
-                out.println(htmlResponse);
             }else{
                 System.out.println("Wrong input");
                 String htmlResponse = "<html>";
